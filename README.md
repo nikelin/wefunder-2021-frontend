@@ -1,6 +1,27 @@
-# Getting Started with Create React App
+# Wefunder Assignment - 2021
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+
+Wefunder Pitch Deck allows users to upload their pre-built pitch decks in form of PDF/PPT presentations to have them 
+accessible and browsable from the web page without any additional software required (_i.e. Adobe Acrobat Reader / Microsoft PowerPoint / etc._).
+
+The application is build in TypeScript and React, and it utilises Material-UI framework as a provider of base UI components.
+
+In order to function correction, the application must be able to make requests to the backend component whose endpoint address can be configured 
+in the `src/config.ts` for each of the supported environments (`local` and `staging`).
+
+## Screens
+
+The presentations page shows all documents ever loaded into the system by its users:
+![Presentations list](./docs/1-presentations-list.png)
+
+On the `New Presentation` page, a user can upload their presentation document also specifying some useful info about contents of 
+the document:
+![Presentations list](./docs/3-new-presentation.png)
+
+When the document is uploaded, it becomes available on the presentation page and can be accessed and viewed by users: 
+![Presentations list](./docs/2-presentation-viewer.png)
+
 
 ## Available Scripts
 
@@ -14,33 +35,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
+Builds the app for production to the `dist` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

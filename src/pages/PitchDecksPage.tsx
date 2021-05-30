@@ -113,6 +113,11 @@ export default function PitchDecksPage(): React.ReactElement {
                 <Grid container spacing={4}>
                     {!presentations.error && presentations.fetching && <Grid item><Typography>Fetching the presentations list...</Typography></Grid>}
                     {presentations.error && !presentations.fetching && <Grid item><Typography>Failed to fetch the presentations list.</Typography></Grid>}
+
+                    {!presentations.error && !presentations.fetching && presentations.list.length === 0 &&
+                        <Grid item><Typography>Nothing here as yet.</Typography></Grid>
+                    }
+
                     {presentations.list.map((presentation, key) =>
                         <Grid item>
                             {renderItem(presentation)}

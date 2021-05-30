@@ -136,8 +136,11 @@ export default function NewPitchDeckPage(): React.ReactElement {
                     <DropzoneArea
                         filesLimit={1}
                         onDelete={() => setFile(null)}
-                        onDrop={(files) => setFile(files[0])}
+                        onDrop={(files) => {
+                            setFile(files[0]);
+                        }}
                         showPreviews={false}
+                        maxFileSize={35000000}
                         showPreviewsInDropzone={false}
                         acceptedFiles={ [
                             "application/pdf",
@@ -161,7 +164,7 @@ export default function NewPitchDeckPage(): React.ReactElement {
                 )}
 
                 <Grid item>
-                    <Button type={"submit"} disabled={!isValid() || formik.isSubmitting} variant={"contained"} color={"primary"}>Upload</Button>
+                    <Button type={"submit"} disabled={!isValid() || !file || formik.isSubmitting} variant={"contained"} color={"primary"}>Upload</Button>
                     <Button variant={"contained"} onClick={onCancel} color={"secondary"}>Cancel</Button>
                 </Grid>
             </Grid>
