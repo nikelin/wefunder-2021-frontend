@@ -13,14 +13,14 @@ in the `src/config.ts` for each of the supported environments (`local` and `stag
 ## Screens
 
 The presentations page shows all documents ever loaded into the system by its users:
-![Presentations list](./docs/1-presentations-list.png)
+![Presentations list](./docs/1-presentations-list.PNG)
 
 On the `New Presentation` page, a user can upload their presentation document also specifying some useful info about contents of 
 the document:
-![Presentations list](./docs/3-new-presentation.png)
+![Presentations list](./docs/3-new-presentation.PNG)
 
 When the document is uploaded, it becomes available on the presentation page and can be accessed and viewed by users: 
-![Presentations list](./docs/2-presentation-viewer.png)
+![Presentations list](./docs/2-presentation-viewer.PNG)
 
 
 ## Available Scripts
