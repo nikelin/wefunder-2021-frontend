@@ -7,7 +7,7 @@ accessible and browsable from the web page without any additional software requi
 
 The application is build in TypeScript and React, and it utilises Material-UI framework as a provider of base UI components.
 
-In order to function correction, the application must be able to make requests to the backend component whose endpoint address can be configured 
+In order to function correctly, the application must be able to make requests to the backend component whose endpoint address can be configured 
 in the `src/config.ts` for each of the supported environments (`local` and `staging`).
 
 ## Screens
