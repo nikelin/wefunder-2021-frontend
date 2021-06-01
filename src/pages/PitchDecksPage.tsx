@@ -67,7 +67,7 @@ export default function PitchDecksPage(): React.ReactElement {
                     <Avatar aria-label="recipe" className={classes.avatar}>{presentation.presentation.author.substring(0, 1)}</Avatar>
                 }
                 title={presentation.presentation.title}
-                subheader={moment(presentation.presentation.createdAt).startOf('hour').fromNow()}
+                subheader={moment(presentation.presentation.createdAt).fromNow()}
             />
             <CardMedia
                 className={classes.media}
