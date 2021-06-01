@@ -36,8 +36,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     card: {
         minWidth: "250px"
     },
-    paper: {
-        width: "95%"
+    itemsList: {
+        padding: "20px"
     },
     title: {
         flexGrow: 1
@@ -96,7 +96,7 @@ export default function PitchDecksPage(): React.ReactElement {
 
         <Divider/>
 
-        <Grid container spacing={5} justify={"center"}>
+        <Grid className={classes.itemsList} container spacing={5} justify={"center"}>
             {!presentations.error && presentations.fetching && <Grid item><Typography>Fetching the presentations list...</Typography></Grid>}
             {presentations.error && !presentations.fetching && <Grid item><Typography>Failed to fetch the presentations list.</Typography></Grid>}
 
@@ -105,7 +105,7 @@ export default function PitchDecksPage(): React.ReactElement {
             }
 
             {presentations.list.map((presentation, key) =>
-                <Grid key={presentation.id.value} item xs={2}>
+                <Grid key={presentation.id.value} item xs={3}>
                     {renderItem(presentation)}
                 </Grid>
             )}
