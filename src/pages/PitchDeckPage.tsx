@@ -40,6 +40,11 @@ export default function PitchDeckPage(): React.ReactElement {
         store.dispatch(performFetchPresentation({id: presentationId}))
     }, [id])
 
+    if (presentation.error) {
+        history.push("/");
+        return <div/>;
+    }
+
     const onGoBack = () => history.push("/");
 
     return <Paper elevation={8} className={classes.paper}>
