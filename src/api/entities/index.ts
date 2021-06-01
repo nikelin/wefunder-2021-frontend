@@ -14,6 +14,7 @@ export type Presentation = {
     title: string;
     author: string;
     description: string;
+    createdAt: number;
 }
 
 export type PresentationData = {

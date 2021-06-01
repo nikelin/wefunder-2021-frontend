@@ -19,6 +19,7 @@ import {performFetchPresentationsList, PresentationsState} from "../slices/prese
 import {Id, Presentation, PresentationData} from "../api/entities";
 import config from "../config";
 import {useHistory} from "react-router";
+import moment from "moment";
 
 const useStyles = makeStyles((theme: Theme) => ({
     root: {
@@ -29,26 +30,13 @@ const useStyles = makeStyles((theme: Theme) => ({
         height: 0,
         paddingTop: '56.25%', // 16:9
     },
-    expand: {
-        transform: 'rotate(0deg)',
-        marginLeft: 'auto',
-        transition: theme.transitions.create('transform', {
-            duration: theme.transitions.duration.shortest,
-        }),
-    },
-    uploadButtonItem: {
-        textAlign: "center"
-    },
     uploadButton: {
         width: "40%"
     },
     card: {
-        minWidth: "250px",
-        margin: "10px"
+        minWidth: "250px"
     },
-    paper: {
-        width: "95%",
-        margin: "50px auto",
+    itemsList: {
         padding: "20px"
     },
     title: {
@@ -79,7 +67,7 @@ export default function PitchDecksPage(): React.ReactElement {
                     <Avatar aria-label="recipe" className={classes.avatar}>{presentation.presentation.author.substring(0, 1)}</Avatar>
                 }
                 title={presentation.presentation.title}
-                subheader="September 14, 2016"
+                subheader={moment(presentation.presentation.createdAt).startOf('hour').fromNow()}
             />
             <CardMedia
                 className={classes.media}
@@ -100,7 +88,7 @@ export default function PitchDecksPage(): React.ReactElement {
         history.push("/pitch-deck/new");
     }
 
-    return <Paper elevation={8} className={classes.paper}>
+    return <Paper elevation={8} className={classes.root}>
         <Toolbar>
             <Typography variant={"h5"} className={classes.title}>Presentations</Typography>
             <Button onClick={() => onNewPitchDeck()} variant={"outlined"}>New Pitch Deck</Button>
@@ -108,23 +96,19 @@ export default function PitchDecksPage(): React.ReactElement {
 
         <Divider/>
 
-        <Grid container direction={"column"} alignContent={"center"} className={classes.root}>
-            <Grid item xs={12}>
-                <Grid container spacing={4}>
-                    {!presentations.error && presentations.fetching && <Grid item><Typography>Fetching the presentations list...</Typography></Grid>}
-                    {presentations.error && !presentations.fetching && <Grid item><Typography>Failed to fetch the presentations list.</Typography></Grid>}
+        <Grid className={classes.itemsList} container spacing={5} justify={"center"}>
+            {!presentations.error && presentations.fetching && <Grid item><Typography>Fetching the presentations list...</Typography></Grid>}
+            {presentations.error && !presentations.fetching && <Grid item><Typography>Failed to fetch the presentations list.</Typography></Grid>}
 
-                    {!presentations.error && !presentations.fetching && presentations.list.length === 0 &&
-                        <Grid item><Typography>Nothing here as yet.</Typography></Grid>
-                    }
+            {!presentations.error && !presentations.fetching && presentations.list.length === 0 &&
+                <Grid item xs={4}><Typography>Nothing here as yet.</Typography></Grid>
+            }
 
-                    {presentations.list.map((presentation, key) =>
-                        <Grid item>
-                            {renderItem(presentation)}
-                        </Grid>
-                    )}
+            {presentations.list.map((presentation, key) =>
+                <Grid key={presentation.id.value} item xs={3}>
+                    {renderItem(presentation)}
                 </Grid>
-            </Grid>
+            )}
         </Grid>
     </Paper>
 }
